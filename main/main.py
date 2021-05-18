@@ -74,12 +74,24 @@ while running:
                 pygame.time.set_timer(launchMissile, 0)
 
     screen.blit(background, (0, 0))
+    player.collided_detect(Enemies)
+    for e in Enemies:
+        if e.collided:
+            Boom.append(Explosion(e.center))
+
     Missile = [item for item in Missile if item.available]
     for m in Missile:
         m.update()
         screen.blit(m.image, m.xy)
+    Enemies = [item for item in Enemies if item.available]
+    for e in Enemies:
+        e.update()
+        screen.blit(e.image, e.xy)
     player.update()
     screen.blit(player.image, player.xy)
+    Boom = [item for item in Boom if item.available]
+    for e in Boom:
+        e.update()
     pygame.display.update()
     dt = clock.tick(fps)
 pygame.quit()
