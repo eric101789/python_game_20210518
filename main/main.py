@@ -22,11 +22,15 @@ running = True
 fps = 60
 movingScale = 600 / fps
 player = Player(playground=playground, sensitivity=movingScale)
-clock = pygame.time.Clock()
-Missile = []
 launchMissile = pygame.USEREVENT + 1
 createEnemy = pygame.USEREVENT + 2
 explosion = pygame.USEREVENT + 3
+
+Missile = []
+Enemies[]
+pygame.time.set_timer(createEnemy, 1000)
+clock = pygame.time.Clock()
+
 
 while running:
     for event in pygame.event.get():
@@ -39,6 +43,9 @@ while running:
             Missile.append(MyMissile(xy=(m_x, m_y), playground=playground, sensitivity=movingScale))
             m_x = player.xy[0] + 80
             Missile.append(MyMissile(xy=(m_x, m_y), playground=playground, sensitivity=movingScale))
+
+        if event.type == createEnemy:
+            Enemies.appendZ(Enemy(playground=playground, sensitivity=movingScale))
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a:
