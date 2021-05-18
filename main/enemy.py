@@ -1,6 +1,5 @@
 import random
 from pathlib import Path
-
 import pygame
 import math
 from gobject import GameObject

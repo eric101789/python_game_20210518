@@ -24,6 +24,7 @@ running = True
 fps = 60
 movingScale = 600 / fps
 player = Player(playground=playground, sensitivity=movingScale)
+
 launchMissile = pygame.USEREVENT + 1
 createEnemy = pygame.USEREVENT + 2
 explosion = pygame.USEREVENT + 3
@@ -31,6 +32,7 @@ explosion = pygame.USEREVENT + 3
 Missile = []
 Enemies = []
 Boom = []
+
 pygame.time.set_timer(createEnemy, 1000)
 clock = pygame.time.Clock()
 
