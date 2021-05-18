@@ -33,28 +33,28 @@ class Enemy(GameObject):
 
         self.to_the_bottom()
 
-        def to_the_bottom(self):
-            self._changeY = self._moveScaleY
-            self._changeX = self._moveScaleX
+    def to_the_bottom(self):
+        self._changeY = self._moveScaleY
+        self._changeX = self._moveScaleX
 
-        def update(self):
-            self._x += self._changeX
-            self._y += self._changeY
+    def update(self):
+        self._x += self._changeX
+        self._y += self._changeY
 
-            if random.random() < 0.001:
-                self._slop = -self._slop
-                self._changeX = math.sin(self._slop * math.pi / 2) * self._moveScale
-            if self._x > self._objectBound[1]:
-                self._x = self._objectBound[1]
-                self._slop = -self._slop
-                self._changeX = math.sin(self._slop * math.pi / 2) * self._moveScale
-            if self._x < self._objectBound[0]:
-                self._x = self._objectBound[0]
-                self._slop = -self._slop
-                self._changeX = math.sin(self._slop * math.pi / 2) * self._moveScale
-            if self._y > self._objectBound[3]:
-                self._y = self._objectBound[3]
-                self._available = False
-            if self._y < self._objectBound[2]:
-                self._y = self._objectBound[2]
-                self._available = False
+        if random.random() < 0.001:
+            self._slop = -self._slop
+            self._changeX = math.sin(self._slop * math.pi / 2) * self._moveScale
+        if self._x > self._objectBound[1]:
+            self._x = self._objectBound[1]
+            self._slop = -self._slop
+            self._changeX = math.sin(self._slop * math.pi / 2) * self._moveScale
+        if self._x < self._objectBound[0]:
+            self._x = self._objectBound[0]
+            self._slop = -self._slop
+            self._changeX = math.sin(self._slop * math.pi / 2) * self._moveScale
+        if self._y > self._objectBound[3]:
+            self._y = self._objectBound[3]
+            self._available = False
+        if self._y < self._objectBound[2]:
+            self._y = self._objectBound[2]
+            self._available = False

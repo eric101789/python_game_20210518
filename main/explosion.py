@@ -35,11 +35,11 @@ class Explosion(GameObject):
             self._image = Explosion.explosion_effect[self.__image_index]
             self.__fps_count = 0
 
-        def update(self):
-            self.__fps_count += 1
-            if self.__fps_count > 30:
-                self.__image_index += 1
-                if self.__image_index > 4:
-                    self._available = False
-                else:
-                    self._image = Explosion.explosion_effect[self.__image_index]
+    def update(self):
+        self.__fps_count += 1
+        if self.__fps_count > 30:
+            self.__image_index += 1
+            if self.__image_index > 4:
+                self._available = False
+            else:
+                self._image = Explosion.explosion_effect[self.__image_index]
