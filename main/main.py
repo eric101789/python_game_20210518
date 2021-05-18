@@ -28,7 +28,8 @@ createEnemy = pygame.USEREVENT + 2
 explosion = pygame.USEREVENT + 3
 
 Missile = []
-Enemies[]
+Enemies = []
+Boom = []
 pygame.time.set_timer(createEnemy, 1000)
 clock = pygame.time.Clock()
 
@@ -46,7 +47,7 @@ while running:
             Missile.append(MyMissile(xy=(m_x, m_y), playground=playground, sensitivity=movingScale))
 
         if event.type == createEnemy:
-            Enemies.appendZ(Enemy(playground=playground, sensitivity=movingScale))
+            Enemies.append(Enemy(playground=playground, sensitivity=movingScale))
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a:
@@ -92,6 +93,7 @@ while running:
     Boom = [item for item in Boom if item.available]
     for e in Boom:
         e.update()
+        screen.blit(e.image, e.xy)
     pygame.display.update()
     dt = clock.tick(fps)
 pygame.quit()
