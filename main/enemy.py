@@ -1,4 +1,5 @@
 import random
+from pathlib import Path
 
 import pygame
 import math
@@ -23,3 +24,37 @@ class Enemy(GameObject):
             self._slop = -0.5
         self._moveScaleY = math.cos(self._slop * math.pi / 2) * self._moveScale
         self._moveScaleX = math.sin(self._slop * math.pi / 2) * self._moveScale
+
+        __parent_path = Path(__file__).parents[1]
+        self.__enemy_path = __parent_path / 'res' / 'enemy.png'
+        self._image = pygame.image.load(self.__enemy_path)
+        self._center = self._x + self._image.get_rect().w / 2, self._y + self._image.get_rect().h / 2
+        self._radius = 0.3 * math.hypot(self._image.get_rect().w, self._image.get_rect().h)
+
+        self.to_the_bottom()
+
+        def to_the_bottom(self):
+            self._changeY = self._moveScaleY
+            self._changeX = self._moveScaleX
+
+        def update(self):
+            self._x += self._changeX
+            self._y += self._changeY
+
+            if random.random() < 0.001:
+                self._slop = -self._slop
+                self._changeX = math.sin(self._slop * math.pi / 2) * self._moveScale
+            if self._x > self._objectBound[1]:
+                self._x = self._objectBound[1]
+                self._slop = -self._slop
+                self._changeX = math.sin(self._slop * math.pi / 2) * self._moveScale
+            if self._x < self._objectBound[0]:
+                self._x = self._objectBound[0]
+                self._slop = -self._slop
+                self._changeX = math.sin(self._slop * math.pi / 2) * self._moveScale
+            if self._y > self._objectBound[3]:
+                self._y = self._objectBound[3]
+                self._available = False
+            if self._y < self._objectBound[2]:
+                self._y = self._objectBound[2]
+

@@ -2,6 +2,7 @@ import pygame
 from pathlib import Path
 from mymissile import MyMissile
 from player import Player
+from enemy import Enemy
 
 parent_path = Path(__file__).parents[1]
 image_path = parent_path / 'res'
