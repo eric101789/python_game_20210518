@@ -1,6 +1,6 @@
 import pygame
 from pathlib import Path
-from mymissile import MyMissile
+from missile import MyMissile
 from player import Player
 from enemy import Enemy
 from explosion import Explosion
