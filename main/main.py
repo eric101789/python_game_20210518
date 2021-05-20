@@ -84,6 +84,7 @@ while running:
     for e in Enemies:
         if e.collided:
             Boom.append(Explosion(e.center))
+
     Missile = [item for item in Missile if item.available]
     for m in Missile:
         m.update()
