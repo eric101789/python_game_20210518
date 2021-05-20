@@ -81,7 +81,6 @@ while running:
     player.collision_detect(Enemies)
     for m in Missile:
         m.collision_detect(Enemies)
-
     for e in Enemies:
         if e.collided:
             Boom.append(Explosion(e.center))
@@ -98,7 +97,7 @@ while running:
     player.update()
     screen.blit(player.image, player.xy)
 
-    Boom = [item for item in Boom if item.available]
+    Boom = [item for item in Boom if item.collided]
     for e in Boom:
         e.update()
         screen.blit(e.image, e.xy)
