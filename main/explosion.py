@@ -38,7 +38,7 @@ class Explosion(GameObject):
         self.__fps_count += 1
         if self.__fps_count > 30:
             self.__image_index += 1
-            if self.__image_index > 6:
+            if self.__image_index > 4:
                 self._available = False
             else:
                 self._image = Explosion.explosion_effect[self.__image_index]
