@@ -32,7 +32,7 @@ class Player(GameObject):
         GameObject.update(self)
         self._center = self._x + self._image.get_rect().w / 2, self._y + self._image.get_rect().h / 2
 
-    def collided_detect(self, enemies):
+    def collision_detect(self, enemies):
         for m in enemies:
             if self._collided_(m):
                 self._hp -= 10

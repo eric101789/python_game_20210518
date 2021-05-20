@@ -78,7 +78,7 @@ while running:
 
     screen.blit(background, (0, 0))
 
-    player.collided_detect(Enemies)
+    player.collision_detect(Enemies)
     for m in Missile:
         m.collision_detect(Enemies)
 
