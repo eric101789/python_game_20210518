@@ -1,4 +1,3 @@
-import math
 from pathlib import Path
 import pygame
 from gobject import GameObject
