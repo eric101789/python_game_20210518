@@ -27,7 +27,7 @@ player = Player(playground=playground, sensitivity=movingScale)
 
 launchMissile = pygame.USEREVENT + 1
 createEnemy = pygame.USEREVENT + 2
-explosion = pygame.USEREVENT + 3
+# explosion = pygame.USEREVENT + 3
 
 Missile = []
 Enemies = []
