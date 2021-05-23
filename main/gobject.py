@@ -24,29 +24,6 @@ class GameObject:
         print(self.__class__.__name__, "is being automatically destroyed.  Goodbye!")
 
     @property
-    def xy(self):
-        return [self._x, self._y]
-
-    @xy.setter
-    def xy(self, xy):
-        try:
-            self._x, self._y = xy
-            if self._x > self._objectBound[1]:
-                self._x = self._objectBound[1]
-            if self._x < self._objectBound[0]:
-                self._x = self._objectBound[0]
-            if self._y > self._objectBound[3]:
-                self._y = self._objectBound[3]
-            if self._y < self._objectBound[2]:
-                self._y = self._objectBound[2]
-
-        except ValueError:
-            raise ValueError("Pass an iterable with two items")
-        else:
-            """This will run only if no exception was raised"""
-            pass
-
-    @property
     def x(self):
         return self._x
 
@@ -79,6 +56,29 @@ class GameObject:
 
     def stop_y(self):
         self._changeY = 0
+
+    @property
+    def xy(self):
+        return [self._x, self._y]
+
+    @xy.setter
+    def xy(self, xy):
+        try:
+            self._x, self._y = xy
+            if self._x > self._objectBound[1]:
+                self._x = self._objectBound[1]
+            if self._x < self._objectBound[0]:
+                self._x = self._objectBound[0]
+            if self._y > self._objectBound[3]:
+                self._y = self._objectBound[3]
+            if self._y < self._objectBound[2]:
+                self._y = self._objectBound[2]
+
+        except ValueError:
+            raise ValueError("Pass an iterable with two items")
+        else:
+            """This will run only if no exception was raised"""
+            pass
 
     def update(self):
         self._x += self._changeX
