@@ -56,5 +56,3 @@ class Enemy(GameObject):
             self._available = False
         if self._y < self._objectBound[2]:
             self._y = self._objectBound[2]
-            self._collided = True
-            self._available = False
