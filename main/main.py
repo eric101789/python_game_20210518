@@ -98,7 +98,7 @@ while running:
     player.update()
     screen.blit(player.image, player.xy)
 
-    Boom = [item for item in Boom if item.collided]
+    Boom = [item for item in Boom if item.available]
     for e in Boom:
         e.update()
         screen.blit(e.image, e.xy)
