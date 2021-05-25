@@ -33,6 +33,9 @@ Missile = []
 Enemies = []
 Boom = []
 
+keyCountX = 0
+keyCountY = 0
+
 pygame.time.set_timer(createEnemy, 1000)
 clock = pygame.time.Clock()
 
@@ -53,13 +56,18 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a:
+                keyCountX += 1
                 player.to_the_left()
             if event.key == pygame.K_d:
+                keyCountX += 1
                 player.to_the_right()
             if event.key == pygame.K_s:
+                keyCountY += 1
                 player.to_the_bottom()
             if event.key == pygame.K_w:
+                keyCountY += 1
                 player.to_the_top()
+
             if event.key == pygame.K_SPACE:
                 m_x = player.x + 20
                 m_y = player.y
@@ -70,9 +78,17 @@ while running:
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_a or event.key == pygame.K_d:
-                player.stop_x()
+                if keyCountX == 1:
+                    keyCountX = 0
+                    player.stop_x()
+                else:
+                    keyCountX -= 1
             if event.key == pygame.K_s or event.key == pygame.K_w:
-                player.stop_y()
+                if keyCountY == 1:
+                    keyCountY = 0
+                    player.stop_y()
+                else:
+                    keyCountY -= 1
             if event.key == pygame.K_SPACE:
                 pygame.time.set_timer(launchMissile, 0)
 
