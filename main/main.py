@@ -29,7 +29,7 @@ launchMissile = pygame.USEREVENT + 1
 createEnemy = pygame.USEREVENT + 2
 # explosion = pygame.USEREVENT + 3
 
-Missile = []
+Missiles = []
 Enemies = []
 Boom = []
 
@@ -47,9 +47,9 @@ while running:
         if event.type == launchMissile:
             m_x = player.xy[0] + 20
             m_y = player.xy[1]
-            Missile.append(MyMissile(xy=(m_x, m_y), playground=playground, sensitivity=movingScale))
+            Missiles.append(MyMissile(xy=(m_x, m_y), playground=playground, sensitivity=movingScale))
             m_x = player.xy[0] + 80
-            Missile.append(MyMissile(xy=(m_x, m_y), playground=playground, sensitivity=movingScale))
+            Missiles.append(MyMissile(xy=(m_x, m_y), playground=playground, sensitivity=movingScale))
 
         if event.type == createEnemy:
             Enemies.append(Enemy(playground=playground, sensitivity=movingScale))
@@ -71,9 +71,9 @@ while running:
             if event.key == pygame.K_SPACE:
                 m_x = player.x + 20
                 m_y = player.y
-                Missile.append(MyMissile(xy=(m_x, m_y), playground=playground, sensitivity=movingScale))
+                Missiles.append(MyMissile(xy=(m_x, m_y), playground=playground, sensitivity=movingScale))
                 m_x = player.x + 80
-                Missile.append(MyMissile(playground, (m_x, m_y), movingScale))
+                Missiles.append(MyMissile(playground, (m_x, m_y), movingScale))
                 pygame.time.set_timer(launchMissile, 400)
 
         if event.type == pygame.KEYUP:
@@ -95,14 +95,14 @@ while running:
     screen.blit(background, (0, 0))
 
     player.collision_detect(Enemies)
-    for m in Missile:
+    for m in Missiles:
         m.collision_detect(Enemies)
     for e in Enemies:
         if e.collided:
             Boom.append(Explosion(e.center))
 
-    Missile = [item for item in Missile if item.available]
-    for m in Missile:
+    Missiles = [item for item in Missiles if item.available]
+    for m in Missiles:
         m.update()
         screen.blit(m.image, m.xy)
 
