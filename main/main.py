@@ -21,7 +21,7 @@ background = pygame.Surface(screen.get_size())
 background = background.convert()
 background.fill((50, 50, 50))
 running = True
-fps = 60
+fps = 120
 movingScale = 600 / fps
 player = Player(playground=playground, sensitivity=movingScale)
 

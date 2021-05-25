@@ -20,15 +20,15 @@ class Explosion(GameObject):
             pass
         else:
             __parent_path = Path(__file__).parents[1]
-            icon_path = __parent_path / 'res' / 'explosion_small.png'
-            Explosion.explosion_effect.append(pygame.image.load(icon_path))
-            icon_path = __parent_path / 'res' / 'explosion_medium.png'
-            Explosion.explosion_effect.append(pygame.image.load(icon_path))
-            icon_path = __parent_path / 'res' / 'explosion_large.png'
-            Explosion.explosion_effect.append(pygame.image.load(icon_path))
-            Explosion.explosion_effect.append(pygame.image.load(icon_path))
-            icon_path = __parent_path / 'res' / 'explosion_medium.png'
-            Explosion.explosion_effect.append(pygame.image.load(icon_path))
+            image_path = __parent_path / 'res' / 'explosion_small.png'
+            Explosion.explosion_effect.append(pygame.image.load(image_path))
+            image_path = __parent_path / 'res' / 'explosion_medium.png'
+            Explosion.explosion_effect.append(pygame.image.load(image_path))
+            image_path = __parent_path / 'res' / 'explosion_large.png'
+            Explosion.explosion_effect.append(pygame.image.load(image_path))
+            Explosion.explosion_effect.append(pygame.image.load(image_path))
+            image_path = __parent_path / 'res' / 'explosion_medium.png'
+            Explosion.explosion_effect.append(pygame.image.load(image_path))
 
         self.__image_index = 0
         self._image = Explosion.explosion_effect[self.__image_index]
