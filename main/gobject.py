@@ -30,15 +30,15 @@ class GameObject:
     @xy.setter
     def xy(self, xy):
         try:
-            self._x, self._y = xy
-            if self._x > self._objectBound[1]:
-                self._x = self._objectBound[1]
-            if self._x < self._objectBound[0]:
-                self._x = self._objectBound[0]
-            if self._y > self._objectBound[3]:
-                self._y = self._objectBound[3]
-            if self._y < self._objectBound[2]:
-                self._y = self._objectBound[2]
+            self._x, self.y = xy
+            if self.x > self._objectBound[1]:
+                self.x = self._objectBound[1]
+            if self.x < self._objectBound[0]:
+                self.x = self._objectBound[0]
+            if self.y > self._objectBound[3]:
+                self.y = self._objectBound[3]
+            if self.y < self._objectBound[2]:
+                self.y = self._objectBound[2]
 
         except ValueError:
             raise ValueError("Pass an iterable with two items")
@@ -50,19 +50,23 @@ class GameObject:
     def x(self):
         return self._x
 
-    @property
-    def y(self):
-        return self._y
-
     @x.setter
     def x(self, value):
         self._x = value
+
+    @property
+    def y(self):
+        return self._y
 
     @y.setter
     def y(self, value):
         self._y = value
 
     @property
+    def hp(self):
+        return self._hp
+
+    @hp.setter
     def hp(self, value):
         self._hp = value
 
