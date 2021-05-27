@@ -33,10 +33,10 @@ class Player(GameObject):
         self._center = self._x + self._image.get_rect().w / 2, self._y + self._image.get_rect().h / 2
 
     def collision_detect(self, enemies):
-        for m in enemies:
-            if self._collided_(m):
+        for e in enemies:
+            if self._collided_(e):
                 self._hp -= 10
                 self._collided = True
-                m.hp = -1
-                m.collided = True
-                m.available = False
+                e.hp = -1
+                e.collided = True
+                e.available = False
