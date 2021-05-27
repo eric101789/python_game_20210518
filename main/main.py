@@ -97,6 +97,7 @@ while running:
     player.collision_detect(Enemies)
     for m in Missiles:
         m.collision_detect(Enemies)
+
     for e in Enemies:
         if e.collided:
             Boom.append(Explosion(e.center))
