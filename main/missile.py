@@ -29,6 +29,5 @@ class MyMissile(GameObject):
                 self._hp -= 10
                 self._collided = True
                 self._available = False
-                m.hp = -1
                 m.collided = True
                 m.available = False

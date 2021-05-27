@@ -62,6 +62,10 @@ class GameObject:
     def y(self, value):
         self._y = value
 
+    @property
+    def hp(self, value):
+        self._hp = value
+
     def to_the_left(self):
         self._changeX = -self._moveScale
 
@@ -120,9 +124,9 @@ class GameObject:
     def radius(self):
         return self._radius
 
-    def _collided_(self, it):
-        distance = math.hypot(self._center[0] - it.center[0], self._center[1] - it.center[1])
-        if distance < self._radius + it.radius:
+    def _collided_(self, enemy):
+        distance = math.hypot(self._center[0] - enemy.center[0], self.center[1] - enemy.center[1])
+        if distance < self._radius + enemy.radius:
             return True
         else:
             return False
